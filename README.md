@@ -1,19 +1,16 @@
-# EECE667-termProject
+# EDA API
+This repository is API for EDA development.
+This API is based on [OpenDB](https://github.com/The-OpenROAD-Project/OpenDB) API.
 
-[![Build Status](https://img.shields.io/badge/develop-ongoing%20-green)]()
+Currently, this project is building for giving template of course work term project of POSTECH in Korea:
 
-Placement Implementation in Cpp with OpenDB API
-
-## External Dependencies
-
-You can use `Dockerfile` in the `OpenDB` submodule, 
-or you are required to install `cmake`, `siwg`, `spdlog`, `boost` in the `Ubuntu` Environment.
+The purpose of term project is **Implementing placer**. 
 
 ## How to build
 
 ```shell
-git clone --recurse-submodules https://github.com/ApeachM/EECE667-termProject.git
-cd EECE667-termProject
+git clone https://github.com/ApeachM/EDA-API.git
+cd EDA-API
 ```
 
 ```shell
@@ -21,10 +18,11 @@ mkdir build
 cd build
 cmake ..
 make
-./Placer
+./placer
 ```
+
+
 
 ## Contributor
 
-[Minjae Kim](https://github.com/ApeachM) in POSTECH
-Email: kmj0824@postech.ac.kr
+[Minjae Kim](https://github.com/ApeachM) <kmj0824@postech.ac.kr> in POSTECH, Korea.
