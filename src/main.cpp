@@ -12,6 +12,8 @@ int main() {
 
   Placer::Circuit circuit;
   circuit.parse(test_path_name + lefName, test_path_name + defName);
-  circuit.dbTutorial();
+  // circuit.dbTutorial();
+  circuit.place();
+  circuit.write(output_path_name +"output_"+ defName);
 
 }

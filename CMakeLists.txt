@@ -12,6 +12,7 @@ set(SOURCES
         src/dataStructures/Instance.cpp
         src/dataStructures/Net.cpp
         src/dataStructures/Pin.cpp
+        src/algorithm/place.cpp
         src/etc/dbTutorial.cpp
         )
 

@@ -50,6 +50,10 @@ class Instance {
 
   string name_;
   string libName_;
+
+  /// This is lower left position of instance
+  /// This is same with the origin of db_inst_ pointer
+  pair<int, int> position_ = pair<int, int>{0, 0};
  public:
 
   /// Constructors
@@ -94,12 +98,15 @@ class Instance {
   /// this function will return the lower left coordinate of instance.
   pair<int, int> getCoordinate() {
     int x = 0, y = 0;
-    db_inst_->getOrigin(x, y);
+    db_inst_->getLocation(x, y);
     return pair<int, int>{x, y};
   }
 
   void setCoordinate(int x, int y){
-    db_inst_->setOrigin(x, y);
+    position_.first = x;
+    position_.second = y;
+    db_inst_->setPlacementStatus(odb::dbPlacementStatus::PLACED);
+    db_inst_->setLocation(x, y);
   }
 
 };
