@@ -1,8 +1,13 @@
 # EDA API
+
+[![Build Status](https://img.shields.io/badge/develop-ongoing%20-green)]()
+
 This repository is API for EDA development.
 This API is based on [OpenDB](https://github.com/The-OpenROAD-Project/OpenDB) API.
 
-[![Build Status](https://img.shields.io/badge/develop-ongoing%20-green)]()
+Currently, this project is building for giving template of course work term project of POSTECH in Korea:
+
+The purpose of term project is **Implementing placer**.
 
 ## External Dependencies
 
