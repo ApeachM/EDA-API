@@ -24,8 +24,7 @@ make
 ./placer
 ```
 
-
-
 ## Contributor
 
-[Minjae Kim](https://github.com/ApeachM) <kmj0824@postech.ac.kr> in POSTECH, Korea.
+[Minjae Kim](https://github.com/ApeachM) in POSTECH
+Email: kmj0824@postech.ac.kr
