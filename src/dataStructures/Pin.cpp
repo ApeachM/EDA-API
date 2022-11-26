@@ -1,6 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 // Creator: Minjae Kim of CSDL, POSTECH
 // Email:   kmj0824@postech.ac.kr
+// GitHub:  ApeachM
 //
 // BSD 3-Clause License
 //
@@ -33,7 +34,7 @@
 
 #include "Pin.h"
 
-namespace Placer {
+namespace Circuit {
 
 Pin::Pin(odb::dbITerm *db_iterm) {
   db_i_term_ = db_iterm;
@@ -106,4 +107,15 @@ Instance *Pin::getInstance() {
   else
     return nullptr;
 }
-} // Placer
+string Pin::getPinName() {
+  string name;
+  if (isInstancePin()) {
+    name = getDbITerm()->getMTerm()->getName();
+  } else if (isBlockPin()) {
+    name = getDbBTerm()->getName();
+  } else {
+    assert(0);
+  }
+  return name;
+}
+} // Circuit

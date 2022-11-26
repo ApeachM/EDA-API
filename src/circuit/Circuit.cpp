@@ -1,6 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 // Creator: Minjae Kim of CSDL, POSTECH
 // Email:   kmj0824@postech.ac.kr
+// GitHub:  ApeachM
 //
 // BSD 3-Clause License
 //
@@ -34,7 +35,7 @@
 
 using namespace std;
 
-namespace Placer {
+namespace Circuit {
 
 void Circuit::parse(const string &lef_name, const string &def_name) {
   parser_.readLef(lef_name);
@@ -104,6 +105,7 @@ void Circuit::init() {
       data_mapping_.pin_map_i[pin_pointer->getDbITerm()] = pin_pointer;
     } else if (pin_pointer->isBlockPin()) {
       data_mapping_.pin_map_b[pin_pointer->getDbBTerm()] = pin_pointer;
+      pad_pointers_.push_back(pin_pointer);
     }
   }
 
@@ -137,8 +139,18 @@ void Circuit::init() {
 void Circuit::write(const string &out_file_name) {
   parser_.writeDef(out_file_name);
 }
+ulong Circuit::getHPWL() {
+  ulong HPWL = 0;
+  for (Net *net : net_pointers_) {
+    HPWL += net->getHPWL();
+  }
+  return HPWL;
+}
+int Circuit::getUnitOfMicro() const {
+  return parser_.db_database_->getTech()->getDbUnitsPerMicron();
+}
 
-} // Placer
+} // Circuit
 
 
 

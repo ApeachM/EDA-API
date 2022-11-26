@@ -1,6 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 // Creator: Minjae Kim of CSDL, POSTECH
 // Email:   kmj0824@postech.ac.kr
+// GitHub:  ApeachM
 //
 // BSD 3-Clause License
 //
@@ -36,7 +37,7 @@
 #include "db.h"
 #include "structures.h"
 
-namespace Placer {
+namespace Circuit {
 using namespace std;
 class Pin {
  private:
@@ -57,7 +58,9 @@ class Pin {
   void setDataMapping(data_mapping *data_mapping);
   dbITerm *getDbITerm() const;
   dbBTerm *getDbBTerm() const;
+  /// return boolean whether it is instance pin or not
   bool isInstancePin();
+  /// return boolean whether it is block pin (fixed pad in Die) or not
   bool isBlockPin();
 
   /// return Instance pointer correspond to the pin
@@ -72,6 +75,9 @@ class Pin {
 
   /// return the signal type of the pin
   string getSignalType();
+
+  /// return the pin name in the instance
+  string getPinName();
 
   /// return the coordinate of the pin.
   /// \details

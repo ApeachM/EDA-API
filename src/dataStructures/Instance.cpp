@@ -1,6 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 // Creator: Minjae Kim of CSDL, POSTECH
 // Email:   kmj0824@postech.ac.kr
+// GitHub:  ApeachM
 //
 // BSD 3-Clause License
 //
@@ -32,7 +33,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 #include "Instance.h"
 
-namespace Placer {
+namespace Circuit {
 
 string Instance::getName() {
   return name_;
@@ -78,4 +79,33 @@ Instance::Instance(odb::dbInst *db_inst, data_storage *data_storage, data_mappin
 uint Instance::getArea() {
   return this->getWidth() * this->getHeight();
 }
-} // Placer
+void Instance::setCoordinate(int x, int y) {
+  position_.first = x;
+  position_.second = y;
+  db_inst_->setPlacementStatus(odb::dbPlacementStatus::PLACED);
+  db_inst_->setLocation(x, y);
+}
+bool Instance::isPlaced() {
+  if (db_inst_->getPlacementStatus() == odb::dbPlacementStatus::PLACED) {
+    return true;
+  } else if (db_inst_->getPlacementStatus() == odb::dbPlacementStatus::NONE) {
+    return false;
+  } else if (db_inst_->getPlacementStatus() == odb::dbPlacementStatus::UNPLACED) {
+    return false;
+  } else {
+    return true;
+  }
+}
+uint Instance::getWidth() {
+  return db_inst_->getMaster()->getWidth();
+}
+uint Instance::getHeight() {
+  return db_inst_->getMaster()->getHeight();
+}
+pair<int, int> Instance::getCoordinate() {
+  int x = 0, y = 0;
+  db_inst_->getLocation(x, y);
+  return pair<int, int>{x, y};
+}
+
+} // Circuit

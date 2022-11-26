@@ -34,7 +34,7 @@
 
 #include "Parser.h"
 
-namespace Placer {
+namespace Circuit {
 
 odb::defout::Version Parser::stringToDefVersion(const string &version) {
   if (version == "5.8")
@@ -96,4 +96,4 @@ void Parser::writeDef(const string &filename, const string &version) const {
     std::cout << "Writing Def is failed." << std::endl;
   }
 }
-} // Placer
+} // Circuit
