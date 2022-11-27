@@ -1,6 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 // Creator: Minjae Kim of CSDL, POSTECH
 // Email:   kmj0824@postech.ac.kr
+// GitHub:  ApeachM
 //
 // BSD 3-Clause License
 //
@@ -33,6 +34,23 @@
 
 #include "Die.h"
 
-namespace Placer {
+namespace Circuit {
 
-} // Placer
+Die::Die(dbBlock *db_block) {
+  db_block_ = db_block;
+  db_block->getDieArea(die_shape_);
+}
+void Die::setDbBlock(dbBlock *db_block) {
+  db_block_ = db_block;
+  db_block->getDieArea(die_shape_);
+}
+uint Die::getWidth() {
+  return  die_shape_.dx();
+}
+uint Die::getHeight() {
+  return  die_shape_.dy();
+}
+uint Die::getArea() {
+  return die_shape_.area();
+}
+} // Circuit

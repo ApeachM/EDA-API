@@ -1,6 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 // Creator: Minjae Kim of CSDL, POSTECH
 // Email:   kmj0824@postech.ac.kr
+// GitHub:  ApeachM
 //
 // BSD 3-Clause License
 //
@@ -38,7 +39,7 @@
 #include <iostream>
 #include "db.h"
 #include "structures.h"
-namespace Placer {
+namespace Circuit {
 using namespace std;
 class Pin;
 class Instance;
@@ -60,6 +61,9 @@ class Net {
   void setDataMapping(data_mapping *data_mapping);
   void setDataStorage(data_storage *data_storage);
 
+  /// get net name
+  string getName();
+
   /// get the connected pin pointers in the net
   vector<Pin *> getConnectedPins();
 
@@ -70,6 +74,9 @@ class Net {
 
   /// get weight of the net
   int getWeight();
+
+  /// get HPWLe of the net
+  ulong getHPWL();
 
 };
 
