@@ -39,7 +39,7 @@
 #include "db.h"
 #include "structures.h"
 
-namespace Placer {
+namespace Circuit {
 using namespace std;
 class Instance {
  private:
@@ -76,14 +76,10 @@ class Instance {
   string getLibName();
 
   /// get width of the instance(cell)
-  uint getWidth() {
-    return db_inst_->getMaster()->getWidth();
-  }
+  uint getWidth();
 
   /// get height of the instance(cell)
-  uint getHeight() {
-    return db_inst_->getMaster()->getHeight();
-  }
+  uint getHeight();
 
   /// get area of the instance(cell)
   uint getArea();
@@ -96,18 +92,16 @@ class Instance {
   /// get coordinate of the instance(cell)
   /// \details
   /// this function will return the lower left coordinate of instance.
-  pair<int, int> getCoordinate() {
-    int x = 0, y = 0;
-    db_inst_->getLocation(x, y);
-    return pair<int, int>{x, y};
-  }
+  pair<int, int> getCoordinate();
 
-  void setCoordinate(int x, int y){
-    position_.first = x;
-    position_.second = y;
-    db_inst_->setPlacementStatus(odb::dbPlacementStatus::PLACED);
-    db_inst_->setLocation(x, y);
-  }
+  /// set coordinate of the instance(cell)
+  /// \details
+  /// this function will set the coordinate of instance as int data type.
+  /// after calling this function, the pins correspond to the cell will be also moved automatically.
+  void setCoordinate(int x, int y);
+  /// check whether it is placed or not
+  bool isPlaced();
+
 
 };
 

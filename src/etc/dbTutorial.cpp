@@ -32,9 +32,9 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "Circuit.h"
-namespace Placer {
+namespace Circuit {
 using namespace std;
-void Circuit::dbTutorial() {
+void Circuit::dbTutorial() const {
 /*
   dbBlock *block = parser_.db_database_->getChip()->getBlock();
   for (int i = 0; i < 4; ++i) {

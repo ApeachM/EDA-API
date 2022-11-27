@@ -1,6 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 // Creator: Minjae Kim of CSDL, POSTECH
 // Email:   kmj0824@postech.ac.kr
+// GitHub:  ApeachM
 //
 // BSD 3-Clause License
 //
@@ -35,7 +36,7 @@
 #define PLACER_INCLUDE_DATASTRUCTURES_DIE_H_
 #include "db.h"
 
-namespace Placer {
+namespace Circuit {
 using namespace odb;
 class Die {
  private:
@@ -43,26 +44,14 @@ class Die {
   Rect die_shape_{};
  public:
   Die() = default;
-  explicit Die(dbBlock *db_block) {
-    db_block_ = db_block;
-    db_block->getDieArea(die_shape_);
-  }
-  void setDbBlock(dbBlock *db_block){
-    db_block_ = db_block;
-    db_block->getDieArea(die_shape_);
-  }
-  uint getWidth() {
-    return  die_shape_.dx();
-  }
-  uint getHeight() {
-    return  die_shape_.dy();
-  }
-  uint getArea(){
-    return die_shape_.area();
-  }
+  explicit Die(dbBlock *db_block);
+  void setDbBlock(dbBlock *db_block);
+  uint getWidth();
+  uint getHeight();
+  uint getArea();
 
 };
 
-} // Placer
+} // Circuit
 
 #endif //PLACER_INCLUDE_DATASTRUCTURES_DIE_H_

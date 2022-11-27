@@ -10,7 +10,7 @@ int main() {
   string test_path_name = "../test/benchmarks/";
   string output_path_name = "../output/";
 
-  Placer::Circuit circuit;
+  Circuit::Circuit circuit;
   circuit.parse(test_path_name + lefName, test_path_name + defName);
   // circuit.dbTutorial();
   circuit.place();
